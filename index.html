@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IBRACHEM | Chemical Engineering &amp; Chemistry</title>
+  <title>IBRACHEM</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,199 +12,286 @@
     }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.65;
-      color: #1e293b;
-      background-color: #f1f5f9;
+      color: #0b0f17;
+      background-color: #e5e7eb;
+      line-height: 1.45;
     }
+
+    /* Top Navigation Bar */
     header {
-      background-color: #071e3d;
+      background-color: #090c10;
       color: #ffffff;
-      padding: 16px 32px;
+      padding: 10px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     }
-    .brand {
-      font-size: 1.45rem;
+    .logo-box {
+      width: 44px;
+      height: 44px;
+      background-color: #ffffff;
+      color: #090c10;
+      border: 2px solid #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #ffffff;
-      text-decoration: none;
+      line-height: 1;
     }
-    .brand span {
-      color: #38bdf8;
+    .logo-num {
+      font-size: 0.65rem;
+      align-self: flex-start;
+      padding-left: 4px;
+    }
+    .logo-sym {
+      font-size: 1.25rem;
+    }
+    .logo-sub {
+      font-size: 0.42rem;
+      letter-spacing: 0.5px;
     }
     nav {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 28px;
     }
     nav a {
-      color: #e2e8f0;
+      color: #38bdf8;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
       font-weight: 500;
-      transition: color 0.2s ease;
+    }
+    nav a.active {
+      color: #5eead4;
     }
     nav a:hover {
-      color: #38bdf8;
+      opacity: 0.85;
     }
-    .nav-verify {
-      background-color: #0284c7;
-      color: #ffffff !important;
-      padding: 7px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-    .nav-verify:hover {
-      background-color: #0369a1;
-    }
+
+    /* Hero Section */
     .hero {
-      background: radial-gradient(circle at top right, #1d4ed8 0%, #09264e 55%, #061830 100%);
-      color: #ffffff;
-      padding: 88px 24px;
-      text-align: center;
+      position: relative;
+      min-height: 520px;
+      background-color: #d8d5d0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px 28px;
+      overflow: hidden;
     }
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.16);
-      border: 1px solid rgba(56, 189, 248, 0.45);
-      color: #7dd3fc;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 18px;
-      letter-spacing: 0.4px;
+    .hero-bg-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(226, 224, 220, 0.92) 0%, rgba(208, 206, 202, 0.78) 60%, rgba(185, 188, 192, 0.75) 100%);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
     .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      line-height: 1.2;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      font-weight: 500;
+      letter-spacing: -1px;
+      color: #090c10;
+      line-height: 1.05;
     }
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 28px auto;
-      color: #cbd5e1;
-      font-size: 1.08rem;
+    .hero-subtitle {
+      font-size: clamp(1.25rem, 2.5vw, 1.95rem);
+      color: #111827;
+      margin-top: 8px;
+      font-weight: 400;
     }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      margin-top: 90px;
     }
-    .btn-primary {
-      background-color: #0ea5e9;
+    .hero-pill {
+      display: inline-block;
+      background-color: #090c10;
       color: #ffffff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.96rem;
-      transition: transform 0.15s ease, background-color 0.2s ease;
+      padding: 6px 14px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 14px;
     }
-    .btn-primary:hover {
-      background-color: #0284c7;
-      transform: translateY(-2px);
+    .hero-meta {
+      font-size: 1.15rem;
+      color: #090c10;
+      line-height: 1.35;
     }
-    .btn-secondary {
-      background-color: transparent;
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.96rem;
-      transition: background-color 0.2s ease;
+
+    /* Teal Intro Banner */
+    .teal-intro {
+      background-color: #46b5a6;
+      color: #090c10;
+      padding: 48px 28px;
     }
-    .btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .teal-intro p {
+      max-width: 560px;
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      line-height: 1.32;
+      font-weight: 400;
     }
-    .section {
-      max-width: 1060px;
-      margin: 56px auto;
-      padding: 0 24px;
+
+    /* Teal Quote Banner */
+    .teal-quote {
+      background-color: #46b5a6;
+      color: #090c10;
+      padding: 44px 28px 64px;
+      border-top: 1px solid rgba(9, 12, 16, 0.08);
     }
-    .section-header {
+    .teal-quote h2 {
+      max-width: 1100px;
+      font-size: clamp(2.1rem, 4.8vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+    }
+
+    /* What Sets Us Apart */
+    .apart-section {
+      background-color: #e5e7eb;
+      padding: 44px 28px 20px;
+    }
+    .apart-section h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 500;
+      color: #090c10;
       margin-bottom: 24px;
     }
-    .section-header h2 {
-      font-size: 1.75rem;
-      color: #071e3d;
-      display: inline-block;
-      padding-bottom: 6px;
-      border-bottom: 3px solid #0ea5e9;
-    }
-    .about-box {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-      border-left: 5px solid #0ea5e9;
-      font-size: 1.02rem;
-      color: #334155;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-    .card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
-    }
-    .card-tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #0284c7;
-      background: #e0f2fe;
-      padding: 3px 10px;
-      border-radius: 6px;
-      margin-bottom: 12px;
-    }
-    .card h3 {
-      color: #071e3d;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-    .card p {
-      color: #475569;
-      font-size: 0.95rem;
-    }
-    footer {
-      background-color: #071e3d;
-      color: #cbd5e1;
+    .feature-block {
+      max-width: 1150px;
+      margin: 0 auto 48px;
       text-align: center;
-      padding: 28px 20px;
-      margin-top: 68px;
-      font-size: 0.92rem;
     }
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
+    .img-frame {
+      width: min(460px, 100%);
+      aspect-ratio: 4 / 3;
+      margin: 0 auto 14px;
+      background-color: #cbd5e1;
+      border: 2px dashed #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      color: #1e293b;
+      font-size: 0.95rem;
       font-weight: 500;
     }
-    footer a:hover {
+    .feature-text {
+      text-align: left;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+    .feature-text h3 {
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #090c10;
+      margin-bottom: 4px;
+    }
+    .feature-text p {
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      color: #111827;
+      line-height: 1.35;
+    }
+
+    /* Closing Banner */
+    .closing-banner {
+      position: relative;
+      min-height: 460px;
+      background-color: #d6d3cd;
+      padding: 44px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .closing-bg-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(224, 221, 215, 0.9) 0%, rgba(204, 201, 195, 0.85) 100%);
+      z-index: 0;
+    }
+    .closing-top {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      font-size: clamp(1.2rem, 2.1vw, 1.55rem);
+      color: #090c10;
+      line-height: 1.32;
+    }
+    .closing-bottom {
+      position: relative;
+      z-index: 1;
+      margin-top: 80px;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 500;
+      color: #090c10;
+      line-height: 1.15;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #090c10;
+      color: #ffffff;
+      padding: 28px 28px 18px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .footer-brand-info {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .footer-contact {
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .footer-links {
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .footer-links a {
+      color: #ffffff;
+    }
+    .contact-btn {
+      background-color: #26a69a;
+      color: #090c10;
+      border: none;
+      padding: 8px 14px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+    .footer-legal a {
+      color: #ffffff;
+      margin-right: 18px;
       text-decoration: underline;
     }
   </style>
@@ -212,65 +299,130 @@
 <body>
 
   <header>
-    <a class="brand" href="#">IBRA<span>CHEM</span></a>
+    <div class="logo-box" aria-label="IBRACHEM Logo">
+      <span class="logo-num">119</span>
+      <span class="logo-sym">Ic</span>
+      <span class="logo-sub">IBRACHEM</span>
+    </div>
     <nav>
-      <a href="#about">About</a>
-      <a href="#topics">Core Topics</a>
-      <a class="nav-verify" href="https://verify.ibrachem.com" target="_blank" rel="noopener">Verify Report</a>
+      <a class="active" href="#top">Home</a>
+      <a href="#chemistry">Chemistry</a>
+      <a href="#chemical-engineering">Chemical Engineering</a>
+      <a href="#practical-knowledge">Practical Knowledge</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+      <a href="#join">Join</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="badge">Academic &amp; Technical Learning Hub</div>
-    <h1>Chemical Engineering &amp; Chemistry</h1>
+  <section id="top" class="hero">
+    <div class="hero-bg-placeholder"></div>
+    <div class="hero-content">
+      <h1>IBRACHEM</h1>
+      <p class="hero-subtitle">A Reliable Academic Platform</p>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-pill">Explore Chemistry &amp; Chemical Engineering</div>
+      <p class="hero-meta">
+        With, <strong>Md. Ibrahim Hossain</strong> [Chemical Engineer]<br />
+        Chemist - Shodesh Group<br />
+        174/4, Muradpur, Bandar, Narayanganj
+      </p>
+    </div>
+  </section>
+
+  <section class="teal-intro">
     <p>
-      Structured concepts, analytical chemistry insights, process fundamentals, and practical
-      industrial safety designed for clear learning and reference.
+      At <strong>IBRACHEM</strong>, we explore the fascinating world of Chemistry and Chemical
+      Engineering through simple explanations, practical examples, calculations, and laboratory
+      knowledge. We aim to make complex scientific concepts easier to understand and apply.
     </p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#topics">Explore Topics</a>
-      <a class="btn-secondary" href="https://verify.ibrachem.com" target="_blank" rel="noopener">Verify Lab Report</a>
+  </section>
+
+  <section class="teal-quote">
+    <h2>
+      We believe scientific knowledge becomes more valuable when it is understood, applied, and shared.
+    </h2>
+  </section>
+
+  <section class="apart-section">
+    <h2>What sets us apart</h2>
+
+    <div id="chemistry" class="feature-block">
+      <div class="img-frame">[Chemistry Lab Image — Add image link later]</div>
+      <div class="feature-text">
+        <h3>CHEMISTRY</h3>
+        <p>
+          Explore fundamental concepts, chemical reactions, analytical techniques, and laboratory
+          knowledge in a simple and understandable way.
+        </p>
+      </div>
+    </div>
+
+    <div id="chemical-engineering" class="feature-block">
+      <div class="img-frame">[Chemical Engineering Plant Image — Add image link later]</div>
+      <div class="feature-text">
+        <h3>CHEMICAL ENGINEERING</h3>
+        <p>
+          Understand process calculations, unit operations, mass and energy balances, heat transfer,
+          mass transfer, and process engineering concepts.
+        </p>
+      </div>
+    </div>
+
+    <div id="practical-knowledge" class="feature-block">
+      <div class="img-frame">[Plant vs Lab VS Image — Add image link later]</div>
+      <div class="feature-text">
+        <h3>PRACTICAL KNOWLEDGE</h3>
+        <p>
+          Connect theoretical knowledge with laboratory practices, chemical testing, calculations, and
+          real-world industrial applications.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <div class="section-header">
-      <h2>About IBRACHEM</h2>
-    </div>
-    <div class="about-box">
-      IBRACHEM is an academic platform focused on Chemistry and Chemical Engineering—bridging core
-      scientific theory with laboratory analysis, process operations, and safe engineering practices.
-    </div>
-  </section>
-
-  <section id="topics" class="section">
-    <div class="section-header">
-      <h2>Core Learning Areas</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <span class="card-tag">Analytical &amp; Lab</span>
-        <h3>General &amp; Analytical Chemistry</h3>
-        <p>Solution concentration, volumetric analysis, chemical indicators, and laboratory quality testing fundamentals.</p>
-      </div>
-      <div class="card">
-        <span class="card-tag">Process &amp; Thermo</span>
-        <h3>Chemical Process Principles</h3>
-        <p>Material and energy balance, thermodynamics, heat transfer, and core unit operations.</p>
-      </div>
-      <div class="card">
-        <span class="card-tag">Safety &amp; Utilities</span>
-        <h3>Process Safety &amp; Water Systems</h3>
-        <p>Industrial hazard awareness, fire and water safety fundamentals, and water treatment concepts.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 IBRACHEM (www.ibrachem.com). All rights reserved.</p>
-    <p style="margin-top: 8px;">
-      Lab Report Verification Portal: <a href="https://verify.ibrachem.com">verify.ibrachem.com</a>
+  <section id="resources" class="closing-banner">
+    <div class="closing-bg-placeholder"></div>
+    <p class="closing-top">
+      Whether you have a question, a topic suggestion, or simply want to connect, I'd love to hear
+      from you. Let's make scientific knowledge easier to understand and share.
     </p>
+    <h2 class="closing-bottom">
+      Knowledge grows when we learn and share together.
+    </h2>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-top">
+      <div class="footer-brand-info">
+        <div class="logo-box" aria-label="IBRACHEM Footer Logo">
+          <span class="logo-num">119</span>
+          <span class="logo-sym">Ic</span>
+          <span class="logo-sub">IBRACHEM</span>
+        </div>
+        <div class="footer-contact">
+          <div><strong>IBRACHEM</strong></div>
+          <div>Cell: +880 1518-915216</div>
+          <div>A/300, Siddhirganj, Narayanganj</div>
+        </div>
+      </div>
+
+      <div id="join" class="footer-links">
+        <div>Social: <a href="https://linkedin.com/ibrachem" target="_blank" rel="noopener">linkedin.com/ibrachem</a></div>
+        <div>Email: <a href="mailto:contact@ibrachem.com">contact@ibrachem.com</a></div>
+      </div>
+
+      <a class="contact-btn" href="mailto:contact@ibrachem.com">Contact us</a>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="#terms">Terms &amp; Support</a>
+        <a href="#privacy">Privacy Policy</a>
+      </div>
+      <div>&copy; 2026 IBRACHEM</div>
+    </div>
   </footer>
 
 </body>
